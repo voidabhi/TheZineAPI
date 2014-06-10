@@ -5,15 +5,15 @@ from bs4 import BeautifulSoup
 
 from constants import BASE_URL, INTERVAL_BETWEEN_REQUESTS
 
-def get_soup():
+def get_soup(page=''):
     """
     Returns a bs4 object of the page requested
     """
-    content = requests.get('%s' % (BASE_URL)).text
+    content = requests.get('%s%s' % (BASE_URL,page)).text
     return BeautifulSoup(content.encode('utf8'))
 
-def get_item_soup(story_id):
+def get_article_soup(link):
     """
-    Returns a bs4 object of the requested story
+    Returns a bs4 object of the requested article
     """
-    return get_soup(page='item?id=' + str(story_id))
+    return get_soup(link)
