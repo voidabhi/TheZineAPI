@@ -78,7 +78,7 @@ class Article(object):
 		head = soup.find_all('article',class_='')[0]
 		parts = link.split('/')
 		id = parts[-1]
-		issue = parts[0].split('-')[-1]
+		issue = parts[0].split('-')[-2]
 		#fetching head
 		title = head.find("h1").contents[0]
 		tagline = head.find("h2").contents[0]
