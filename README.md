@@ -1,4 +1,4 @@
 The &rsquo;Zine
 ===============
 
-Unofficial python api for the blog http://thezine.biz
+Unofficial python api of the blog http://thezine.biz
