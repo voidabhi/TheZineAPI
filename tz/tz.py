@@ -113,4 +113,5 @@ class Author(object):
 
 					
 if __name__ == '__main__':
-	print 'its a library bozo'
+	article = Article.fromLink('issue-2/travel')
+	print article.issue
