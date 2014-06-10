@@ -113,4 +113,4 @@ class Author(object):
 
 					
 if __name__ == '__main__':
-	print 'Its a library bozo!'
+	print 'its a library bozo'
