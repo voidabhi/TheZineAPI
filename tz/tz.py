@@ -80,16 +80,18 @@ class Article(object):
 		id = '%s-%s'%(parts[0],parts[-1])
 		issue = parts[0].split('-')[-1]
 		#fetching head
-		title = head.find("h1").contents[0]
-		tagline = head.find("h2").contents[0]
-		#fetching body
-		body = soup.find_all('article',class_='main-body')[0].find(class_='inner')
-		#fetching author
-		aside = soup.find_all('aside')[0]
-		author_name = aside.find('em').contents[0].strip()
-		author_image = aside.find('img').get('src')
-		author_email = aside.find('span',class_='icon').findParent('a').get('href').split(':')[-1]
-		author  = Author(author_name,author_image,author_email)
+		title = head.find("h1").contents[0] if head.find("h1") else 'No heading'
+		tagline = head.find("h2").contents[0] if head.find("h2") else ''
+		body = '' #fetching body
+		if len(soup.find_all('article',class_='main-body')) > 0:
+			body = soup.find_all('article',class_='main-body')[0].find(class_='inner')
+		author = '' #fetching author
+		if len(soup.find_all('aside')) > 0:
+			aside = soup.find_all('aside')[0] if soup.find_all('aside')[0] else ''
+			author_name = aside.find('em').contents[0].strip() if aside.find('em') else ''
+			author_image = aside.find('img').get('src') if aside.find('img') else ''
+			author_email = aside.find('span',class_='icon').findParent('a').get('href').split(':')[-1]
+			author  = Author(author_name,author_image,author_email)
 		return Article(id=id,title=title,tagline=tagline,body=body,issue=issue,link='http://thezine.biz/%s'%link,author=author)
 			
 	def __repr__(self):
