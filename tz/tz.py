@@ -47,7 +47,7 @@ class TZ(object):
 	mArticles = []
 	for article in articles:
 		mArticle = {}
-		mArticle['link'] = article.get('href')
+		mArticle['link'] = article.get('href')[1:]
 		mArticle['title'] = article.find('li').contents[0].strip()
 		mArticle['author'] = article.find('span').contents[0].encode('utf8')
 		mArticles.append(mArticle)
@@ -77,8 +77,8 @@ class Article(object):
 		soup = get_article_soup(link)
 		head = soup.find_all('article',class_='')[0]
 		parts = link.split('/')
-		id = parts[-1]
-		issue = parts[0].split('-')[-2]
+		id = '%s-%s'%(parts[0],parts[-1])
+		issue = parts[0].split('-')[-1]
 		#fetching head
 		title = head.find("h1").contents[0]
 		tagline = head.find("h2").contents[0]
@@ -88,12 +88,12 @@ class Article(object):
 		aside = soup.find_all('aside')[0]
 		author_name = aside.find('em').contents[0].strip()
 		author_image = aside.find('img').get('src')
-		author_email = aside.find('span',class_='icon icon-mail').findParent('a').get('href').split(':')[-1]
+		author_email = aside.find('span',class_='icon').findParent('a').get('href').split(':')[-1]
 		author  = Author(author_name,author_image,author_email)
-		return Article(id=id,title=title,tagline=tagline,body=body,issue=issue,link=link,author=author)
+		return Article(id=id,title=title,tagline=tagline,body=body,issue=issue,link='http://thezine.biz/%s'%link,author=author)
 			
 	def __repr__(self):
-		return '<Article : {0},{1},http://thezine.biz/{2},{3}>'.format(self.id, self.title, self.link , self.author.name)		
+		return '<Article : {0},{1},{2},{3}>'.format(self.id, self.title, self.link , self.author.name)		
 		
 		
 
@@ -113,5 +113,5 @@ class Author(object):
 
 					
 if __name__ == '__main__':
-	article = Article.fromLink('issue-2/travel')
-	print article.issue
+	article = Article.fromLink('issue-3/loathing')
+	print article.id
