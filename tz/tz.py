@@ -105,15 +105,24 @@ class Author(object):
 	"""
 	
 	def __init__(self, name, image, email):
+		self.id = self._get_id(name)
 		self.name= name
 		self.image = image
 		self.email = email
+		
+	def _get_id(self,name):
+		if name:
+			words = name.split(' ')
+			return '-'.join(words)
+		else :
+			return ''			
+	
 
 	def __repr__(self):
-		return '<Author : {0} , {1} , {2}>'.format(self.name, self.image, self.email)	
+		return '<Author : {0} , {1} , {2}>'.format(self.id, self.name, self.email)	
 		
 
 					
 if __name__ == '__main__':
 	article = Article.fromLink('issue-3/loathing')
-	print article.id
+	print article.author
