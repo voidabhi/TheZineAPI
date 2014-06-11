@@ -138,10 +138,11 @@ class Contact(object):
 	"""
 		Represents different type of contact information of the author
 	"""
-	def __init__(self, email, facebook, twitter):
+	def __init__(self, email, facebook, twitter,link):
 		self.email = email
 		self.facebook = facebook
 		self.twitter = twitter
+		self.link = link
 		
 	@classmethod
 	def from_soup(self,author,soup):
@@ -151,12 +152,13 @@ class Contact(object):
 		email = soup.find('span',class_='icon icon-mail').findParent('a').get('href').split(':')[-1]  if soup.find('span',class_='icon icon-mail') else ''
 		facebook = soup.find('span',class_='icon icon-facebook').findParent('a').get('href') if soup.find('span',class_='icon icon-facebook') else ''
 		twitter = soup.find('span',class_='icon icon-twitter-3').findParent('a').get('href') if soup.find('span',class_='icon icon-twitter-3') else ''
-		return Contact(email,facebook,twitter)
+		link = soup.find('span',class_='icon icon-link').findParent('a').get('href') if soup.find('span',class_='icon icon-link') else ''
+		return Contact(email,facebook,twitter,link)
 		
 	def __repr__(self):
-		return '<Contact : {0} , {1} , {2}>'.format(self.email, self.facebook,self.twitter)		
+		return '<Contact : {0} , {1} , {2} ,{3}>'.format(self.email, self.facebook,self.twitter,self.link)		
 	
 					
 if __name__ == '__main__':
-	article = Article.fromLink('issue-1/editorial')
+	article = Article.fromLink('issue-4/conversation')
 	print article.author.contact
