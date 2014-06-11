@@ -79,19 +79,19 @@ class Article(object):
 		parts = link.split('/')
 		id = '%s-%s'%(parts[0],parts[-1])
 		issue = parts[0].split('-')[-1]
+		
 		#fetching head
 		title = head.find("h1").contents[0] if head.find("h1") else 'No heading'
 		tagline = head.find("h2").contents[0] if head.find("h2") else ''
+		
 		body = '' #fetching body
 		if len(soup.find_all('article',class_='main-body')) > 0:
 			body = soup.find_all('article',class_='main-body')[0].find(class_='inner')
-		author = '' #fetching author
+			
+		author =  '' #fetching author
 		if len(soup.find_all('aside')) > 0:
-			aside = soup.find_all('aside')[0] if soup.find_all('aside')[0] else ''
-			author_name = aside.find('em').contents[0].strip() if aside.find('em') else ''
-			author_image = aside.find('img').get('src') if aside.find('img') else ''
-			author_email = aside.find('span',class_='icon').findParent('a').get('href').split(':')[-1]
-			author  = Author(author_name,author_image,author_email)
+				aside = soup.find_all('aside')[0] if soup.find_all('aside')[0] else ''
+				author = Author.from_soup(aside)
 		return Article(id=id,title=title,tagline=tagline,body=body,issue=issue,link='http://thezine.biz/%s'%link,author=author)
 			
 	def __repr__(self):
@@ -104,25 +104,59 @@ class Author(object):
 		Represents an author of tz
 	"""
 	
-	def __init__(self, name, image, email):
-		self.id = self._get_id(name)
+	def __init__(self, name, image, contact):
+		self.id = Author._get_id(name)
 		self.name= name
 		self.image = image
-		self.email = email
+		self.contact = contact
 		
+	@classmethod
 	def _get_id(self,name):
 		if name:
-			words = name.split(' ')
+			words = name.lower().split(' ')
 			return '-'.join(words)
 		else :
-			return ''			
-	
-
-	def __repr__(self):
-		return '<Author : {0} , {1} , {2}>'.format(self.id, self.name, self.email)	
+			return ''
+			
+	@classmethod
+	def from_soup(self,soup):
+		"""
+			Factory Method. Fetches author data from given soup and builds the object
+		"""	
+		if soup is None or soup is '':
+			return None
+		else:	
+			author_name = soup.find('em').contents[0].strip() if soup.find('em') else ''
+			author_image = soup.find('img').get('src') if soup.find('img') else ''
+			author_contact = Contact.from_soup(self,soup)
+			return Author(author_name,author_image,author_contact)	
 		
+	def __repr__(self):
+		return '<Author : {0} , {1}>'.format(self.id, self.name)
 
+class Contact(object):
+	"""
+		Represents different type of contact information of the author
+	"""
+	def __init__(self, email, facebook, twitter):
+		self.email = email
+		self.facebook = facebook
+		self.twitter = twitter
+		
+	@classmethod
+	def from_soup(self,author,soup):
+		"""
+			Factory Method. Fetches contact data from given soup and builds the object
+		"""	
+		email = soup.find('span',class_='icon icon-mail').findParent('a').get('href').split(':')[-1]  if soup.find('span',class_='icon icon-mail') else ''
+		facebook = soup.find('span',class_='icon icon-facebook').findParent('a').get('href') if soup.find('span',class_='icon icon-facebook') else ''
+		twitter = soup.find('span',class_='icon icon-twitter-3').findParent('a').get('href') if soup.find('span',class_='icon icon-twitter-3') else ''
+		return Contact(email,facebook,twitter)
+		
+	def __repr__(self):
+		return '<Contact : {0} , {1} , {2}>'.format(self.email, self.facebook,self.twitter)		
+	
 					
 if __name__ == '__main__':
-	article = Article.fromLink('issue-3/loathing')
-	print article.author
+	article = Article.fromLink('issue-1/editorial')
+	print article.author.contact
