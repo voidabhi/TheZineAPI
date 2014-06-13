@@ -81,7 +81,7 @@ class Article(object):
 		issue = parts[0].split('-')[-1]
 		
 		#fetching head
-		title = head.find("h1").contents[0] if head.find("h1") else 'No heading'
+		title = head.find("h1").contents[0] if head.find("h1") else ''
 		tagline = head.find("h2").contents[0] if head.find("h2") else ''
 		
 		body = '' #fetching body
