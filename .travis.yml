@@ -7,6 +7,9 @@ install:
     - pip install -r tests/requirements.txt --use-mirrors
 script:
     - python tests/test_get_articles.py
+	- python tests/test_article_from_link.py
+	- python tests/test_article_author.py
+	- python tests/test_author_contacts.py
 notifications:
   email: false
 after_success:
