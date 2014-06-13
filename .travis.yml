@@ -9,3 +9,5 @@ script:
     - python tests/test_get_articles.py
 notifications:
   email: false
+after_success:
+  - coveralls  
