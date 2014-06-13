@@ -5,5 +5,7 @@ install:
     - python setup.py install
     - pip install -r requirements.txt --use-mirrors
     - pip install -r tests/requirements.txt --use-mirrors
+script:
+    - python tests/test_get_articles.py
 notifications:
   email: false

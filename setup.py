@@ -4,7 +4,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
-setup(name='thezine',
+setup(name='TheZine',
       version='0.0.1',
 	  install_requires=['BeautifulSoup4>=4.3.1', 'requests'],
       description='Python API for The Zine',
