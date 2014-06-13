@@ -160,5 +160,4 @@ class Contact(object):
 	
 					
 if __name__ == '__main__':
-	article = Article.fromLink('issue-4/conversation')
-	print article.author.contact
+	print TZ().get_articles()
