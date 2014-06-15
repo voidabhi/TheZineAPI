@@ -1,8 +1,5 @@
 
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+from setuptools import setup
 
 setup(name='TheZine',
       version='0.0.1',

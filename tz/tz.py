@@ -160,4 +160,4 @@ class Contact(object):
 	
 					
 if __name__ == '__main__':
-	print TZ().get_articles()
+	print 'This is a library bozo!'
