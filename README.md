@@ -5,8 +5,7 @@ Unofficial python api for the blog [The &rsquo;Zine](http://thezine.biz)
 
 | Build Status | Version | Coverage |
 | ------------ | ------- | -------- |
-| [![Build Status](https://travis-ci.org/karan/HackerNewsAPI.png?branch=master)](https://travis-ci.org/karan/HackerNewsAPI)|[![Latest Version](https://pypip.in/v/TheZine/badge.png)](https://pypi.python.org/pypi/TheZine/) 
-[![Coverage Status](https://coveralls.io/repos/voidabhi/TheZineAPI/badge.png)](https://coveralls.io/r/voidabhi/TheZineAPI)
+| [![Build Status](https://travis-ci.org/karan/HackerNewsAPI.png?branch=master)](https://travis-ci.org/karan/HackerNewsAPI)|[![Latest Version](https://pypip.in/v/TheZine/badge.png)](https://pypi.python.org/pypi/TheZine/) | [![Coverage Status](https://coveralls.io/repos/voidabhi/TheZineAPI/badge.png)](https://coveralls.io/r/voidabhi/TheZineAPI)
 
 Installation
 ============
