@@ -10,7 +10,11 @@ Unofficial python api for the blog [The &rsquo;Zine](http://thezine.biz)
 Installation
 ============
 
-    $ pip install TheZine
+### Method 1 - Pip
+
+```bash
+$ pip install TheZine
+````
 
 Dependencies
 ============
