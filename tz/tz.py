@@ -121,7 +121,7 @@ class Author(object):
 	@classmethod
 	def from_soup(self,soup):
 		"""
-			Factory Method. Fetches author data from given soup and builds the object
+			Factory Pattern. Fetches author data from given soup and builds the object
 		"""	
 		if soup is None or soup is '':
 			return None
@@ -147,7 +147,7 @@ class Contact(object):
 	@classmethod
 	def from_soup(self,author,soup):
 		"""
-			Factory Method. Fetches contact data from given soup and builds the object
+			Factory Pattern. Fetches contact data from given soup and builds the object
 		"""	
 		email = soup.find('span',class_='icon icon-mail').findParent('a').get('href').split(':')[-1]  if soup.find('span',class_='icon icon-mail') else ''
 		facebook = soup.find('span',class_='icon icon-facebook').findParent('a').get('href') if soup.find('span',class_='icon icon-facebook') else ''
