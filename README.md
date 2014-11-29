@@ -37,7 +37,7 @@ Comming Soon!
 Usage
 ==========
 
-
+	# importing the library
     from tz import TZ
 
     tz = TZ()
