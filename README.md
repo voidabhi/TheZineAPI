@@ -49,7 +49,7 @@ Usage
 Contribute
 ==========
 
-Feel free to send pull requests
+Feel free to send pull requests!
 		
 LICENSE
 ==========
