@@ -29,10 +29,8 @@ Dependencies
 
 The library is built on top of 'Requests' and 'BeautifulSoup' modules.
 
-Features
+Built By
 ==========
-
-Comming Soon!
 
 Usage
 ==========
