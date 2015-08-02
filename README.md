@@ -32,6 +32,8 @@ The library is built on top of 'Requests' and 'BeautifulSoup' modules.
 Built By
 ==========
 
+`Abhijeet Mohan`
+
 Usage
 ==========
 
