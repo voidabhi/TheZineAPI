@@ -32,7 +32,7 @@ The library is built on top of 'Requests' and 'BeautifulSoup' modules.
 Built By
 ==========
 
-`Abhijeet Mohan`
+`Abhijeet Mohan` - `void.aby@gmail.com`
 
 Usage
 ==========
