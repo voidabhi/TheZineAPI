@@ -27,7 +27,7 @@ $ python setup.py install
 Dependencies
 ============
 
-The library is built on top of 'Requests' and 'BeautifulSoup' modules.
+The library is built on top of `Requests` and `BeautifulSoup` modules.
 
 Built By
 ==========
