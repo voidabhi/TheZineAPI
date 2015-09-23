@@ -1,7 +1,7 @@
 The &rsquo;Zine
 ===============
 
-Unofficial python api for the blog [The &rsquo;Zine](http://thezine.biz)
+Unofficial python api of [The &rsquo;Zine](http://thezine.biz)
 
 | Build Status | Version |Test Coverage | Downloads |
 | ------------ | ------- | ------------ | --------- |
