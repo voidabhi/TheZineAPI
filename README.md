@@ -18,7 +18,7 @@ $ pip install TheZine
 
 ### Method 2 - Build from source
 
-```bash
+```python
 $ git clone git@github.com:voidabhi/TheZine.git
 $ cd TheZine
 $ python setup.py install
