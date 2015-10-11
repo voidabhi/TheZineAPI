@@ -44,7 +44,8 @@ Usage
 
 	# importing the library
     from tz import TZ
-
+	
+	# instantiating TZ object
     tz = TZ()
 
     # fetch all the articles of an issue in a dict
