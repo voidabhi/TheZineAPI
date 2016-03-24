@@ -1,5 +1,4 @@
-The &rsquo;Zine
-===============
+## The &rsquo;Zine
 
 Unofficial python api of [The &rsquo;Zine](http://thezine.biz)
 
@@ -7,8 +6,8 @@ Unofficial python api of [The &rsquo;Zine](http://thezine.biz)
 | ------------ | ------- | ------------ | --------- |
 | [![Build Status](https://travis-ci.org/voidabhi/TheZineAPI.svg)](https://travis-ci.org/voidabhi/TheZineAPI)|[![Latest Version](https://pypip.in/v/TheZine/badge.png)](https://pypi.python.org/pypi/TheZine/) | [![Coverage Status](https://img.shields.io/coveralls/voidabhi/TheZineAPI.svg)](https://coveralls.io/r/voidabhi/TheZineAPI?branch=master)|[![Downloads](https://pypip.in/d/TheZine/badge.png)](https://pypi.python.org/pypi/TheZine/)
 
-Installation
-============
+### Installation
+
 
 ### Method 1 - Pip
 
@@ -24,13 +23,11 @@ $ cd TheZine
 $ python setup.py install
 ```
 
-Dependencies
-============
+### Dependencies
 
 The library is built with `Requests` and `BeautifulSoup`.
 
-Built By
-==========
+### Built By
 
 `Abhijeet Mohan` - `void.aby@gmail.com`
 
@@ -39,8 +36,7 @@ Built By
        src="http://data.pkmmte.com/temp/social_google_plus_logo.png" />
 </a>
 
-Usage
-==========
+### Usage
 
 	# importing the library
     from tz import TZ
@@ -52,13 +48,11 @@ Usage
     for article in tz.get_articles(issue='2'):
         print(article['title'])
 		
-Contribute
-==========
+### Contribute
 
 Feel free to send pull requests!
 		
-LICENSE
-==========
+### LICENSE
 
 ```
 
