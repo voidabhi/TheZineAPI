@@ -4,7 +4,7 @@ Unofficial python api of [The &rsquo;Zine](http://thezine.biz)
 
 | Build Status | Version |Test Coverage | Downloads |
 | ------------ | ------- | ------------ | --------- |
-| [![Build Status](https://travis-ci.org/voidabhi/TheZineAPI.svg)](https://travis-ci.org/voidabhi/TheZineAPI)|[![Latest Version](https://pypip.in/v/TheZine/badge.png)](https://pypi.python.org/pypi/TheZine/) | [![Coverage Status](https://img.shields.io/coveralls/voidabhi/TheZineAPI.svg)](https://coveralls.io/r/voidabhi/TheZineAPI?branch=master)|[![Downloads](https://pypip.in/d/TheZine/badge.png)](https://pypi.python.org/pypi/TheZine/)
+| [![Build Status](https://travis-ci.org/voidabhi/TheZineAPI.svg)](https://travis-ci.org/voidabhi/TheZineAPI)|[![Latest Version](https://img.shields.io/pypi/v/TheZine.svg | [![Coverage Status](https://img.shields.io/coveralls/voidabhi/TheZineAPI.svg)](https://coveralls.io/r/voidabhi/TheZineAPI?branch=master)|[![Downloads](https://img.shields.io/pypi/dm/TheZine.svg
 
 ### Installation
 
